@@ -10,121 +10,35 @@ import diseases_c from "../../data/Diseases_C";
 import diseases_d from "../../data/Diseases_D";
 import diseases_e from "../../data/Diseases_E";
 
-const Services = () => {
-  const [enterDiseaseName, setEnterDiseaseName] = useState("");
-  const [message, setMessage] = useState(false);
+const alphabets = [
+  {
+    id: 1,
+    letter: "a",
+    diseases: diseases_a,
+  },
+  {
+    id: 2,
+    letter: "b",
+    diseases: diseases_b,
+  },
+  {
+    id: 3,
+    letter: "c",
+    diseases: diseases_c,
+  },
+  {
+    id: 4,
+    letter: "d",
+    diseases: diseases_d,
+  },
+  {
+    id: 5,
+    letter: "e",
+    diseases: diseases_e,
+  },   
+];
 
-  const alphabets = [
-    {
-      id: 1,
-      letter: "a",
-      diseases: diseases_a,
-    },
-    {
-      id: 2,
-      letter: "b",
-      diseases: diseases_b,
-    },
-    {
-      id: 3,
-      letter: "c",
-      diseases: diseases_c,
-    },
-    {
-      id: 4,
-      letter: "d",
-      diseases: diseases_d,
-    },
-    {
-      id: 5,
-      letter: "e",
-      diseases: diseases_e,
-    },
-    // {
-    //   id: 6,
-    //   letter: "f",
-    // },
-    // {
-    //   id: 7,
-    //   letter: "g",
-    // },
-    // {
-    //   id: 8,
-    //   letter: "h",
-    // },
-    // {
-    //   id: 9,
-    //   letter: "i",
-    // },
-    // {
-    //   id: 10,
-    //   letter: "j",
-    // },
-    // {
-    //   id: 11,
-    //   letter: "k",
-    // },
-    // {
-    //   id: 12,
-    //   letter: "l",
-    // },
-    // {
-    //   id: 13,
-    //   letter: "m",
-    // },
-    // {
-    //   id: 14,
-    //   letter: "n",
-    // },
-    // {
-    //   id: 15,
-    //   letter: "o",
-    // },
-    // {
-    //   id: 16,
-    //   letter: "p",
-    // },
-    // {
-    //   id: 17,
-    //   letter: "q",
-    // },
-    // {
-    //   id: 18,
-    //   letter: "r",
-    // },
-    // {
-    //   id: 19,
-    //   letter: "s",
-    // },
-    // {
-    //   id: 20,
-    //   letter: "t",
-    // },
-    // {
-    //   id: 21,
-    //   letter: "u",
-    // },
-    // {
-    //   id: 22,
-    //   letter: "v",
-    // },
-    // {
-    //   id: 23,
-    //   letter: "w",
-    // },
-    // {
-    //   id: 24,
-    //   letter: "x",
-    // },
-    // {
-    //   id: 25,
-    //   letter: "y",
-    // },
-    // {
-    //   id: 26,
-    //   letter: "z",
-    // },
-  ];
+const Services = () => {
   return (
     <>
       {/* bgimage */}
@@ -175,50 +89,8 @@ const Services = () => {
         </div>
       </section>
 
-      {/* filter disease from list */}
-      <section className="max-w-[1200px] mx-auto px-2 mt-10">
-        {/* input box */}
-        <div className="w-full relative flex items-center gap-x-4">
-          <i className="absolute pl-4">
-            <BsSearch size="25px" fill="grey" />
-          </i>
-          <input
-            type="text"
-            name="disease"
-            id="disease"
-            onChange={(e) => setEnterDiseaseName(e.target.value)}
-            value={enterDiseaseName}
-            placeholder="Filter By Keyword"
-            className="w-full pl-16 py-4 text-gray-600 border-2 border-gray-600 text-xl font-poppins focus:outline-primary"
-          />
-        </div>
-        {/* list of all diseases */}
-        {/* alphabets */}
-        <p className="text-center pt-8 flex flex-wrap justify-center gap-y-4">
-          {alphabets.map((alphabet) => (
-            <a
-              key={alphabet.id}
-              href={`#${alphabet.letter}`}
-              className="uppercase text-xl text-primary font-medium underline px-2"
-            >
-              {alphabet.letter}
-            </a>
-          ))}
-        </p>
-
-        {message && <h1>Sorry, no results were found.</h1>}
-        {/* list of diseases */}
-        {alphabets.map((alphabet) => (
-          <ArrayFilter
-            arr={alphabet.diseases}
-            userValue={enterDiseaseName}
-            alphabet={alphabet}
-            key={alphabet.id}
-            setMessage={setMessage}
-          />
-        ))}
-      </section>
-
+      <Search />
+     
       <Footer />
       <ScrollToTop />
     </>
@@ -226,3 +98,79 @@ const Services = () => {
 };
 
 export default Services;
+
+
+const SearchComp = () => {
+  const [enterDiseaseName, setEnterDiseaseName] = useState("");  
+
+  let filteredItems = arr.filter((item) => {
+    return item.name.toLowerCase().includes(userValue.toLowerCase());
+  });
+ 
+  {/* filter disease from list */}
+  return (
+     <section className="max-w-[1200px] mx-auto px-2 mt-10">
+     {/* input box */}
+     <div className="w-full relative flex items-center gap-x-4">
+       <i className="absolute pl-4">
+         <BsSearch size="25px" fill="grey" />
+       </i>
+       <input
+         type="text"
+         name="disease"
+         id="disease"
+         onChange={(e) => setEnterDiseaseName(e.target.value)}
+         value={enterDiseaseName}
+         placeholder="Filter By Keyword"
+         className="w-full pl-16 py-4 text-gray-600 border-2 border-gray-600 text-xl font-poppins focus:outline-primary"
+       />
+     </div>
+     {/* list of all diseases */}
+     {/* alphabets */}
+     <p className="text-center pt-8 flex flex-wrap justify-center gap-y-4">
+       {alphabets.map((alphabet) => (
+         <a
+           key={alphabet.id}
+           href={`#${alphabet.letter}`}
+           className="uppercase text-xl text-primary font-medium underline px-2"
+         >
+           {alphabet.letter}
+         </a>
+       ))}
+     </p>
+
+    {filteredItems.length < 1 && <p>Sorry message here</p>}   
+     {/* list of diseases */}
+     {alphabets.map((alphabet) => (
+       <Items
+       key={alphabet.id}
+       filteredItems={filteredItems}
+       alphabet={alphabet}
+       />
+     ))}
+   </section>
+  )
+}
+
+const Items = ({ filteredItems, alphabet }) => {
+  return (
+    <>
+      (
+        <ul className=" border-b-2 border-gray-600 pb-8">
+          <li className="uppercase text-primary text-2xl font-medium py-5">
+            {alphabet.letter}
+          </li>
+          {/* mapping diseases */}
+          {filteredItem.map((item) => (
+            <li
+              key={item.id}
+              className="text-lg leading-8 tracking-wide text-gray-600 underline pl-5 normal-case"
+            >
+              <Link to={`/ourservices/${item.name}`}>{item.name}</Link>
+            </li>
+          ))}
+        </ul>
+      )
+    </>
+  );
+};

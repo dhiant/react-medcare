@@ -3,10 +3,6 @@ import { Link } from "react-router-dom";
 
 const ArrayFilter = ({ arr, userValue, alphabet, setMessage }) => {
   // filtering diseases
-  let filteredItem = arr.filter((item) => {
-    return item.name.toLowerCase().includes(userValue.toLowerCase());
-  });
-
   return (
     <>
       {filteredItem.length === 0
