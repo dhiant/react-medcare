@@ -13,12 +13,12 @@ const Prescribtion = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
-        className="mt-10"
+        className="mt-6"
       >
         <path
-          fill="rgb(10, 124, 139)"
-          fill-opacity="0.9"
-          d="M0,288L60,266.7C120,245,240,203,360,186.7C480,171,600,181,720,176C840,171,960,149,1080,149.3C1200,149,1320,171,1380,181.3L1440,192L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+          fill="#0a7c8b"
+          fill-opacity="1"
+          d="M0,64L80,69.3C160,75,320,85,480,90.7C640,96,800,96,960,128C1120,160,1280,224,1360,256L1440,288L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
         ></path>
       </svg>
       <section className="max-w-[1200px] mx-auto px-2">
@@ -61,14 +61,14 @@ const Prescribtion = () => {
         {/* steps */}
         <div className="mt-5">
           <PrescribtionSteps
-            img="https://plushcare.com/wp-content/uploads/2022/04/step1.jpg"
+            img="https://plushcare.com/_next/image/?url=https%3A%2F%2Fimages.ctfassets.net%2F93dxz9nwxioo%2Fqt92VznfNuTEDXOZzoh61%2F87980737ef20fae409214f93719e0b37%2Fstep1.jpg&w=384&q=75"
             step={1}
             todo="Book an Appointment"
             text="Book a same-day appointment from anywhere in the Nepal."
             flexFlow="flex-row"
           />
           <PrescribtionSteps
-            img="https://plushcare.com/wp-content/uploads/2022/04/step2.jpg"
+            img="https://plushcare.com/_next/image/?url=https%3A%2F%2Fimages.ctfassets.net%2F93dxz9nwxioo%2F2D9XZaum9S4B0CRrr4kIsh%2F384b9ac6426e5ccad96ae4d99d6025f3%2Fstep2.jpg&w=384&q=75"
             step={2}
             todo="Talk to a doctor."
             text="Speak with a top doctor about your prescriptions on your
@@ -76,7 +76,7 @@ const Prescribtion = () => {
             flexFlow="md:flex-row-reverse"
           />
           <PrescribtionSteps
-            img="https://plushcare.com/wp-content/uploads/2022/04/step3.jpg"
+            img="https://plushcare.com/_next/image/?url=https%3A%2F%2Fimages.ctfassets.net%2F93dxz9nwxioo%2F6ooloWzVDmoond6VsrSsX6%2F0fa0f8fc7c37638745e6fa1ce37bc1d7%2Fstep3.jpg&w=384&q=75"
             step={3}
             todo="Pick up your prescriptions."
             text="We can send prescriptions to your local pharmacy."
